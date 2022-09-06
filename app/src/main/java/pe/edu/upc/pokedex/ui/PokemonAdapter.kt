@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.upc.pokedex.R
-import pe.edu.upc.pokedex.data.Pokemon
+import pe.edu.upc.pokedex.data.model.Pokemon
 
 class PokemonAdapter(val pokemons: ArrayList<Pokemon>) : RecyclerView.Adapter<PokemonPrototype>() {
     // Vista de cada fila

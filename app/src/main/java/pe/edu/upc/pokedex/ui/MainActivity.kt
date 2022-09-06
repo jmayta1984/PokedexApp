@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.upc.pokedex.R
-import pe.edu.upc.pokedex.data.Pokemon
+import pe.edu.upc.pokedex.data.model.Pokemon
 
 // Paso 1: Crear los layouts
 // Paso 2: Colocar id a las vistas que necesitamos
