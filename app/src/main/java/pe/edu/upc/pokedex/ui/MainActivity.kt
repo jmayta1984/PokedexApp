@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.upc.pokedex.R
 import pe.edu.upc.pokedex.data.model.Pokemon
+import pe.edu.upc.pokedex.data.remote.ApiClient
 
 // Paso 1: Crear los layouts
 // Paso 2: Colocar id a las vistas que necesitamos
@@ -36,7 +37,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadItems() {
-        pokemons = ArrayList()
+
+        val pokemonInterface = ApiClient.build()
+
     }
 
     private fun initViews() {
