@@ -2,6 +2,7 @@ package pe.edu.upc.pokedex.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.upc.pokedex.R
 import pe.edu.upc.pokedex.data.Pokemon
@@ -28,7 +29,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
+        pokemonAdapter = PokemonAdapter(pokemons)
+        rvPokemon.adapter = pokemonAdapter
 
+        rvPokemon.layoutManager = LinearLayoutManager(this)
     }
 
     private fun loadItems() {
