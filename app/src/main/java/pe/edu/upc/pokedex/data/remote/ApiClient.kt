@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    private const val API_BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
+    private const val API_BASE_URL = "https://pokeapi.co/api/v2/"
 
     private var pokemonInterface: PokemonInterface? = null
 

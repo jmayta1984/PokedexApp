@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import pe.edu.upc.pokedex.R
 import pe.edu.upc.pokedex.data.model.Pokemon
 import pe.edu.upc.pokedex.data.remote.ApiClient
+import pe.edu.upc.pokedex.data.remote.ApiResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // Paso 1: Crear los layouts
 // Paso 2: Colocar id a las vistas que necesitamos
@@ -26,19 +30,29 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
         loadItems()
-        setAdapter()
-    }
 
-    private fun setAdapter() {
-        pokemonAdapter = PokemonAdapter(pokemons)
-        rvPokemon.adapter = pokemonAdapter
-
-        rvPokemon.layoutManager = LinearLayoutManager(this)
     }
 
     private fun loadItems() {
 
         val pokemonInterface = ApiClient.build()
+
+        val getPokemons = pokemonInterface?.getPokemons()
+
+        getPokemons?.enqueue(object : Callback<ApiResponse> {
+            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                if (response.isSuccessful){
+                    pokemons = response.body()!!.results
+                    pokemonAdapter = PokemonAdapter(pokemons)
+                    rvPokemon.adapter = pokemonAdapter
+                    rvPokemon.layoutManager = LinearLayoutManager(this@MainActivity)
+
+                }
+            }
+
+            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+            }
+        })
 
     }
 
